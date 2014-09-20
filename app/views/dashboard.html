@@ -1,0 +1,81 @@
+<div class="page page-dashboard" data-ng-controller="DashboardCtrl">
+
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Court Map</strong></div>
+        <div class="panel-body">
+            <google-map class="ui-map" center="map.center" 
+               zoom="map.zoom" 
+               options="map.options"
+               events="map.events"
+               draggable="true" >
+                <markers models="map.markers"
+                    coords="'self'"
+                    icon="'icon'"
+                    doCluster="map.doClusterMarkers"
+                    click="'onClicked'"
+                    events="markersEvents"
+                    labelContent="'title'"
+                    labelAnchor="22 0"
+                    labelClass="marker-labels">
+                  <windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+                    <p ng-non-bindable>This is a court at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
+                    <p class="muted">My marker will stay open when the window is popped up!</p>
+                  </windows>
+                </markers>
+              </google-map>
+      <span>{{map}}</span>
+      <span>{{court}}</span>
+        </div>
+    </section>
+
+    <!-- stats -->
+    <div class="row">
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-success">
+                    <i class="fa fa-rocket"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">25 <span class="size-h4">%</span></p>
+                    <p class="text-muted"><span data-i18n="Growth"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-info">
+                    <i class="fa fa-users"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">112</p>
+                    <p class="text-muted"><span data-i18n="New users"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-warning">
+                    <i class="fa fa-dollar"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">4,550</p>
+                    <p class="text-muted"><span data-i18n="Profit"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xsm-6">
+            <div class="panel mini-box">
+                <span class="box-icon bg-danger">
+                    <i class="fa fa-shopping-cart"></i>
+                </span>
+                <div class="box-info">
+                    <p class="size-h2">262</p>
+                    <p class="text-muted"><span data-i18n="Sales"></span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end stats -->
+
+</div>
